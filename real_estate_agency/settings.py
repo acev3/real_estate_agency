@@ -18,7 +18,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "REPLACE_ME")
 DEBUG = os.getenv("DEBUG", "true").lower() in ['yes', '1', 'true']
 
 ALLOWED_HOSTS = []
-
+PHONENUMBER_DEFAULT_REGION = "RU"
 
 # Application definition
 
@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     'property.apps.PropertyConfig',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
