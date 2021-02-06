@@ -38,7 +38,7 @@ class Flat(models.Model):
                                             null=True, blank=True,
                                             db_index=True
                                             )
-    new_building = models.NullBooleanField("Новостройка")
+    new_building = models.NullBooleanField("Новостройка", db_index=True)
     liked_by = models.ManyToManyField(User, verbose_name="Кто лайкнул",
                                       blank=True, related_name="liked_flats"
                                       )
@@ -71,10 +71,15 @@ class Owner(models.Model):
         verbose_name = "Владельца"
         verbose_name_plural = "Владельцы"
 
-    owner = models.CharField("ФИО владельца", max_length=200)
-    owner_phonenumber = models.CharField("Номер владельца", max_length=20)
+    owner = models.CharField("ФИО владельца", max_length=200,
+                             db_index=True
+                             )
+    owner_phonenumber = models.CharField("Номер владельца", max_length=20,
+                                         db_index=True
+                                         )
     owner_phone_pure = PhoneNumberField("Нормализованный номер владельца",
-                                        blank=True, region='RU'
+                                        blank=True, region='RU',
+                                        db_index=True
                                         )
     flat = models.ManyToManyField(Flat, verbose_name="Квартира",
                                   blank=True, related_name="owners"
