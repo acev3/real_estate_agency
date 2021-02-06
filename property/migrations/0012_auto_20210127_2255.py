@@ -13,6 +13,7 @@ def connect_owner_flat(apps, schema_editor):
         )
         flat.owners.set(owners)
 
+
 class Migration(migrations.Migration):
 
     dependencies = [

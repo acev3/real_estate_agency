@@ -9,6 +9,7 @@ def auto_update_new_building(apps, schema_editor):
         flat.new_building = flat.construction_year >= 2015
         flat.save()
 
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -18,3 +19,4 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(auto_update_new_building),
     ]
+

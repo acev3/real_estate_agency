@@ -2,6 +2,7 @@
 from django.db import migrations
 import phonenumbers
 
+
 def normalize_phone_number(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     for flat in Flat.objects.all():
@@ -24,3 +25,4 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(normalize_phone_number),
     ]
+
